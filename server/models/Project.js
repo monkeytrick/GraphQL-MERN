@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+
+
+// Schema for DB - note this is different to that for GraphQL
 const ProjectSchema = new mongoose.Schema({
     name: {
         type: String
@@ -16,3 +19,5 @@ const ProjectSchema = new mongoose.Schema({
         ref: 'Client'
     }
 })
+
+module.exports = mongoose.model('Project', ProjectSchema);
