@@ -1,7 +1,10 @@
-import Header from "./components/assets/Header";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
-import Clients from "./components/assets/Clients";
-import AddClientModal from "./components/assets/AddClientModal";
+// Example of imported componenets
+import Header from "./components/Header";
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+import Project from './components/Projects';
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/graphql',
@@ -12,11 +15,16 @@ function App() {
   return (
     <>
     <ApolloProvider client={client}>
-      <Header/>
-        <div className="container">
-          <AddClientModal />
-          <Clients />
-        </div>
+      <Router>
+        <Header/>
+          <div className="container">
+              <Routes>
+                <Route path='/' element={<Home/> } />
+                <Route path="/projects/:id" element={<Project/>}/>
+                <Route path='*' element={<NotFound/>} />
+              </Routes>
+          </div>
+        </Router>
     </ApolloProvider>
     </>
   );
