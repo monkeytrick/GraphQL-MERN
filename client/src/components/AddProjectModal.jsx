@@ -89,10 +89,6 @@ export default function AddClientModal() {
                         <label className="form-label">Description</label>
                         <textarea type="text" className="form-control" id="description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                     </div>
-                    {/* <div className="mb-3">
-                        <label className="form-lable">Email</label>
-                        <input type="text" className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    </div> */}
                     <div className="mb-3">
                         <label className="form-label">Status</label>
                         <select id="status" className="form-select" value={status} onChange={(e) => setStatus(e.target.value)}>

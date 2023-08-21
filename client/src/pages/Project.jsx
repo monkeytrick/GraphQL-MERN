@@ -4,6 +4,8 @@ import Spinner from "../components/Spinner";
 import { useQuery } from "@apollo/client";
 import { GET_PROJECT } from "../queries/projectQueries";
 import ClientInfo from "../components/ClientInfo";
+import DeleteProjectButton from "../components/DeleteProjectButton";
+import
 
 export default function Project() {
   const { id } = useParams();
@@ -23,6 +25,7 @@ export default function Project() {
           
           {/* !Client info not being displayed. Probably due to Graphql issue */}
           <ClientInfo client={data.project.client} />
+          <DeleteProjectButton ProjectId={data.project.id}/>
         </div>
       )}
     </>
